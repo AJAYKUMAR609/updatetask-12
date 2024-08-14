@@ -1,17 +1,18 @@
 import pytest
+import sys
+import os
+import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from openpyxl import load_workbook
 from selenium.webdriver.chrome.service import Service as ChromeService
-import sys
-import os
-import time
+from Pageobject.Orange_Login import LoginPage
+
 
 # Ensure the parent directory is in the system path for module imports
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from Pageobject.Orange_Login import LoginPage
 
 
 @pytest.fixture
@@ -24,11 +25,11 @@ def browser(chrome_service=None):
     driver.quit()
 
 @pytest.fixture
-def username():  # Rename the fixture to match the parameter name
+def username(): 
     return "Admin"
 
 @pytest.fixture
-def password():  # Rename the fixture to match the parameter name
+def password():  
     return "admin123"
 
 
